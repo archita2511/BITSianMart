@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "178954676907",
+    "project_id": "bitsianmart",
+    "storage_bucket": "bitsianmart.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178954676907:android:38beb12ccf2eba523be5ee",
+        "android_client_info": {
+          "package_name": "com.thecodecity.practiceapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178954676907-8nj7q373nabmvhrjh3laod2sicu7cmgs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thecodecity.practiceapplication",
+            "certificate_hash": "c3c1f129a5073cd56f6efdb1bc88147d1df1a9a2"
+          }
+        },
+        {
+          "client_id": "178954676907-gvfau211h509racbfq1o88mam42ee7g6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA40jxfNG4LYvS6DorZ4fpf0xFu7uRbcNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178954676907-gvfau211h509racbfq1o88mam42ee7g6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

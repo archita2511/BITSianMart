@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RegisterButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
@@ -10,15 +11,34 @@
         android:id="@+id/UsernameEditText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="72dp"
         android:background="@drawable/rounded_border_edittext"
         android:ems="10"
         android:gravity="center"
         android:hint="Username"
         android:inputType="textPersonName"
+        android:onClick="createAccount"
         android:textColorHighlight="#FF5722"
         android:textColorLink="#4CAF50"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/PhoneNumberEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="276dp"
+        android:background="@drawable/rounded_border_edittext"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Phone Number"
+        android:inputType="textPersonName"
+        android:onClick="createAccount"
+        android:textColorHighlight="#FF5722"
+        android:textColorLink="#4CAF50"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -29,7 +49,7 @@
         android:id="@+id/PasswordEditText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_border_edittext"
         android:ems="10"
         android:gravity="center"
@@ -44,10 +64,10 @@
         app:layout_constraintTop_toBottomOf="@+id/UsernameEditText" />
 
     <EditText
-        android:id="@+id/PasswordEditText1"
+        android:id="@+id/RetypePasswordEditText1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="88dp"
         android:background="@drawable/rounded_border_edittext"
         android:ems="10"
         android:gravity="center"
@@ -81,14 +101,16 @@
         android:id="@+id/CustomerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="78dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="49dp"
         android:text="Customer"
         android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/RegistrationButton"
         app:layout_constraintEnd_toStartOf="@+id/WhilesalerButton"
         app:layout_constraintStart_toEndOf="@+id/RetailerButton"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordEditText1" />
+        app:layout_constraintTop_toBottomOf="@+id/PhoneNumberEditText" />
 
     <RadioButton
         android:id="@+id/RetailerButton"
@@ -122,7 +144,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/SignUpButton"
+        android:id="@+id/RegistrationButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"

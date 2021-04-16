@@ -42,6 +42,7 @@
         android:fontFamily="sans-serif-black"
         android:text="Sign In"
         android:textColor="@color/icons"
+        android:onClick="LoginUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PasswordLoginEditText" />
@@ -59,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
 
     <Button
-        android:id="@+id/RegisterButton"
+        android:id="@+id/RegistrationButton"
         android:layout_width="160dp"
         android:layout_height="58dp"
         android:layout_gravity="center"
