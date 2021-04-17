@@ -25,10 +25,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
-    EditText  txtusername,  txtpassword, txtretypepassword, txtphonenumber;
-    RadioButton customerButton, retailorButton, wholesalorButton;
-    Button Register;
-    ProgressDialog loadingBar;
+   private EditText  txtusername,  txtpassword, txtretypepassword, txtphonenumber, txtemail;
+   private RadioButton customerButton, retailorButton, wholesalorButton;
+   private Button Register;
+   private ProgressDialog loadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +36,12 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         txtusername = (EditText) findViewById(R.id.UsernameEditText);
         txtpassword = (EditText) findViewById(R.id.PasswordEditText);
+        txtemail = (EditText) findViewById(R.id.EmailEditText);
         Register = (Button) findViewById(R.id.RegistrationButton);
         txtretypepassword = (EditText) findViewById(R.id.RetypePasswordEditText1);
         customerButton= (RadioButton) findViewById(R.id.CustomerButton);
         retailorButton = (RadioButton) findViewById(R.id.RetailerButton);
-        wholesalorButton = (RadioButton) findViewById(R.id.WhilesalerButton);
+        wholesalorButton = (RadioButton) findViewById(R.id.WholesalerButton);
         txtphonenumber = (EditText) findViewById(R.id.PhoneNumberEditText);
         loadingBar = new ProgressDialog(this);
     }
@@ -50,6 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
         String password= txtpassword.getText().toString();
         String retypePassword = txtretypepassword.getText().toString();
         String phoneNumber = txtphonenumber.getText().toString();
+        String email= txtemail.getText().toString();
         String userType="";
         if (customerButton.isChecked()){
             userType="Customer";
@@ -68,6 +70,10 @@ public class SignUpActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
         }
+        else if (TextUtils.isEmpty(email))
+        {
+            Toast.makeText(this, "Please enter your email address", Toast.LENGTH_SHORT).show();
+        }
         else if (TextUtils.isEmpty(retypePassword))
         {
             Toast.makeText(this, "Please retype password", Toast.LENGTH_SHORT).show();
@@ -81,23 +87,24 @@ public class SignUpActivity extends AppCompatActivity {
             loadingBar.setMessage("Please wait, while we are checking the credentials.");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
-            ValidateEmail(phoneNumber,userName,password);
+            ValidateUserName(phoneNumber,userName,password,email);
         }
 
     }
 
-    private void ValidateEmail(final String phone,final String name, final String password) {
+    private void ValidateUserName(final String phone,final String name, final String password, final String email) {
        final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(!snapshot.child("Users").child(phone).exists()){
+                if(!snapshot.child("Users").child(name).exists()){
                     HashMap<String, Object> userdataMap = new HashMap<>();
                     userdataMap.put("phone", phone);
                     userdataMap.put("password", password);
                     userdataMap.put("name", name);
-                    RootRef.child("Users").child(phone).updateChildren(userdataMap)
+                    userdataMap.put("email",email);
+                    RootRef.child("Users").child(name).updateChildren(userdataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task)
@@ -119,9 +126,9 @@ public class SignUpActivity extends AppCompatActivity {
                             });
                 }
                 else{
-                    Toast.makeText(SignUpActivity.this, "This " + phone + " already exists.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "This name:" + name + " already exists.", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
-                    Toast.makeText(SignUpActivity.this, "Please try again using another phone number.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Please try again using another username.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                     startActivity(intent);
 
