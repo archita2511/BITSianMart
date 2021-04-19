@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void createAccount(View view) {
+        Log.i("tag","Creating account");
         String userName = txtusername.getText().toString();
         String password= txtpassword.getText().toString();
         String retypePassword = txtretypepassword.getText().toString();

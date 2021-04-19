@@ -73,7 +73,7 @@ Users userData = snapshot.child(parentDbNode).child(userName).getValue(Users.cla
     if(userData.getPassword().equals(password)){
          Toast.makeText(MainActivity.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
         //  loadingBar.dismiss();
-        startActivity(new Intent(getApplicationContext(), OTPActivity.class));
+        startActivity(new Intent(getApplicationContext(), SendingEvent.class));
 
     }
     else{
