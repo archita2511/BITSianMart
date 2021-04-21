@@ -110,10 +110,10 @@
         android:layout_width="107dp"
         android:layout_height="29dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="288dp"
 
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="10dp"
         android:text="Type of user:"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -128,60 +128,57 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="48dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/button_rounded"
         android:backgroundTint="@color/colorPrimary"
         android:fontFamily="sans-serif-black"
-        android:text="Register"
         android:onClick="createAccount"
+        android:text="Register"
         android:textColor="@color/icons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="23dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/RegistrationButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PhoneNumberEditText"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.698">
 
 
         <RadioButton
             android:id="@+id/WholesalerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="26dp"
             android:layout_marginBottom="45dp"
             android:text="Wholesaler"
             android:textSize="15sp" />
 
-
         <RadioButton
             android:id="@+id/RetailerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="34dp"
             android:layout_marginBottom="48dp"
             android:text="Retailer"
             android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/RegistrationButton"
-            app:layout_constraintEnd_toStartOf="@+id/CustomerButton"
-            app:layout_constraintStart_toEndOf="@+id/WholesalerButton"
             app:layout_constraintTop_toBottomOf="@+id/PhoneNumberEditText" />
 
         <RadioButton
@@ -189,16 +186,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="48dp"
             android:text="Customer"
             android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/RegistrationButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/RetailerButton"
             app:layout_constraintTop_toBottomOf="@+id/PhoneNumberEditText"
             app:layout_constraintVertical_bias="1.0" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/fetch_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="5dp"
+        android:text="Give access to my current location"
+        app:layout_constraintBottom_toTopOf="@+id/RegistrationButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
