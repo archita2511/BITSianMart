@@ -104,65 +104,113 @@
         android:id="@+id/glasses"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="101dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="37dp"
+        android:src="@drawable/glasses"
+        app:layout_constraintBottom_toTopOf="@+id/headphones_handfree"
+        app:layout_constraintEnd_toStartOf="@+id/laptop_pc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slogan_category" />
 
     <ImageView
         android:id="@+id/laptop_pc"
         android:layout_width="90dp"
         android:layout_height="80dp"
-        android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="93dp" />
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="36dp"
+        android:src="@drawable/laptops"
+        app:layout_constraintBottom_toTopOf="@+id/mobilephones"
+        app:layout_constraintEnd_toStartOf="@+id/purses_bags_wallets"
+        app:layout_constraintStart_toEndOf="@+id/glasses"
+        app:layout_constraintTop_toBottomOf="@+id/slogan_category" />
 
     <ImageView
         android:id="@+id/purses_bags_wallets"
         android:layout_width="90dp"
         android:layout_height="80dp"
-        android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="228dp"
-        tools:layout_editor_absoluteY="93dp" />
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="79dp"
+        android:layout_marginBottom="37dp"
+        android:src="@drawable/purses_bags"
+        app:layout_constraintBottom_toTopOf="@+id/watches"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/laptop_pc"
+        app:layout_constraintTop_toBottomOf="@+id/slogan_category" />
 
     <ImageView
         android:id="@+id/watches"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="214dp"
-        tools:layout_editor_absoluteY="261dp" />
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginBottom="28dp"
+        android:src="@drawable/watches"
+        app:layout_constraintBottom_toTopOf="@+id/hats_caps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mobilephones"
+        app:layout_constraintTop_toBottomOf="@+id/purses_bags_wallets" />
 
     <ImageView
         android:id="@+id/headphones_handfree"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="261dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="28dp"
+        android:src="@drawable/headphoness"
+        app:layout_constraintBottom_toTopOf="@+id/sweathers"
+        app:layout_constraintEnd_toStartOf="@+id/mobilephones"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/glasses" />
 
     <ImageView
         android:id="@+id/mobilephones"
         android:layout_width="70dp"
         android:layout_height="80dp"
-        android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="261dp" />
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="28dp"
+        android:src="@drawable/mobiles"
+        app:layout_constraintBottom_toTopOf="@+id/shoes"
+        app:layout_constraintEnd_toStartOf="@+id/watches"
+        app:layout_constraintStart_toEndOf="@+id/headphones_handfree"
+        app:layout_constraintTop_toBottomOf="@+id/laptop_pc" />
 
     <ImageView
         android:id="@+id/t_shirts"
         android:layout_width="87dp"
         android:layout_height="90dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="64dp"
         android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="470dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sports_t_shirts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sweathers" />
 
     <ImageView
         android:id="@+id/sports_t_shirts"
         android:layout_width="73dp"
         android:layout_height="79dp"
-        android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="469dp" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="90dp"
+        android:src="@drawable/sports"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/female_dresses"
+        app:layout_constraintStart_toEndOf="@+id/t_shirts"
+        app:layout_constraintTop_toBottomOf="@+id/shoes"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/female_dresses"
@@ -172,33 +220,53 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="81dp"
         android:layout_marginBottom="44dp"
-        android:src="@drawable/cell"
+        android:src="@drawable/female_dresses"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/sports_t_shirts"
-        app:layout_constraintTop_toBottomOf="@+id/hats_caps" />
+        app:layout_constraintTop_toBottomOf="@+id/hats_caps"
+        app:layout_constraintVertical_bias="0.385" />
 
     <ImageView
         android:id="@+id/sweathers"
         android:layout_width="67dp"
         android:layout_height="80dp"
-        android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="378dp" />
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="19dp"
+        android:src="@drawable/sweather"
+        app:layout_constraintBottom_toTopOf="@+id/t_shirts"
+        app:layout_constraintEnd_toStartOf="@+id/shoes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headphones_handfree" />
 
     <ImageView
         android:id="@+id/shoes"
         android:layout_width="70dp"
         android:layout_height="80dp"
-        android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="374dp" />
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/shoess"
+        app:layout_constraintBottom_toTopOf="@+id/female_dresses"
+        app:layout_constraintEnd_toStartOf="@+id/hats_caps"
+        app:layout_constraintStart_toEndOf="@+id/sweathers"
+        app:layout_constraintTop_toBottomOf="@+id/mobilephones" />
 
     <ImageView
         android:id="@+id/hats_caps"
         android:layout_width="73dp"
         android:layout_height="75dp"
-        android:src="@drawable/tshirts"
-        tools:layout_editor_absoluteX="239dp"
-        tools:layout_editor_absoluteY="373dp" />
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/hats"
+        app:layout_constraintBottom_toTopOf="@+id/female_dresses"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shoes"
+        app:layout_constraintTop_toBottomOf="@+id/watches" />
 </androidx.constraintlayout.widget.ConstraintLayout>
