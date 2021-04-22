@@ -73,8 +73,19 @@ Users userData = snapshot.child(parentDbNode).child(userName).getValue(Users.cla
     if(userData.getPassword().equals(password)){
          Toast.makeText(MainActivity.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
         //  loadingBar.dismiss();
-        startActivity(new Intent(getApplicationContext(), SendingEvent.class));
+        startActivity(new Intent(getApplicationContext(),RetailerCategoryActivity.class)) ;
 
+        /*
+        if(userData.getRole()=="Customer"){
+           startActivity(new Intent(getApplicationContext(),CustomerActivity.class)) ;
+        }
+        else if(userData.getRole()=="Retailer"){
+            startActivity(new Intent(getApplicationContext(),RetailerCategoryActivity.class)) ;
+        }
+        else{
+            startActivity(new Intent(getApplicationContext(), SendingEvent.class));
+        }
+*/
     }
     else{
       //  loadingBar.dismiss();

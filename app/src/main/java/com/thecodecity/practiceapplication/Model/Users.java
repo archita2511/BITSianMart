@@ -1,7 +1,7 @@
 package com.thecodecity.practiceapplication.Model;
 
 public class Users {
-private String name, email, password, phone;
+private String name, email, password, phone,role;
 public Users(){
 
 }
@@ -11,6 +11,7 @@ public Users(){
         this.email = email;
         this.password = password;
         this.phone = phone;
+        this.role=role;
     }
 
     public String getName() {
@@ -35,6 +36,14 @@ public Users(){
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getPhone() {

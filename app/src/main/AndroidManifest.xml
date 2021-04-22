@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.thecodecity.practiceapplication">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".RetailerAddNewProductActivity"></activity>
+        <activity android:name=".RetailerCategoryActivity" />
+        <activity android:name=".RetailerActivity" />
+        <activity android:name=".CustomerActivity" />
         <activity android:name=".SendingEvent" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">

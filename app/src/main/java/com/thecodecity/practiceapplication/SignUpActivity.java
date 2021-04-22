@@ -46,6 +46,7 @@ private Double lati, longi;
     Button fetch;
  //   TextView user_location;
     private FusedLocationProviderClient mFusedLocationClient;
+    String userType="";
 
 
 
@@ -172,12 +173,11 @@ private Double lati, longi;
         String retypePassword = txtretypepassword.getText().toString();
         String phoneNumber = txtphonenumber.getText().toString();
         String email= txtemail.getText().toString();
-        String userType="";
         if (customerButton.isChecked()){
             userType="Customer";
         }
         if(retailorButton.isChecked()){
-            userType="Retailor";
+            userType="Retailer";
         }
         if(wholesalorButton.isChecked()){
             userType="Wholesalor";
@@ -226,6 +226,7 @@ private Double lati, longi;
                     userdataMap.put("email",email);
                     userdataMap.put("latitude",lati);
                     userdataMap.put("longitude",longi);
+                    userdataMap.put("role",userType);
                     RootRef.child("Users").child(name).updateChildren(userdataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
