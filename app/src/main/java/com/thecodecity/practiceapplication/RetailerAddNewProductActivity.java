@@ -20,6 +20,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -42,6 +44,9 @@ public class RetailerAddNewProductActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retailer_add_new_product);
+        CategoryName = getIntent().getExtras().get("category").toString();
+        ProductImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
+        ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
         AddNewProductButton = (Button) findViewById(R.id.add_new_product);
         InputProductImage = (ImageView) findViewById(R.id.select_product_image);
         InputProductName = (EditText) findViewById(R.id.product_name);

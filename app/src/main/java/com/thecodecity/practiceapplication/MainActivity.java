@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.thecodecity.practiceapplication.Model.Users;
+import com.thecodecity.practiceapplication.Prevalent.Prevalent;
 
 public class MainActivity extends AppCompatActivity {
    private EditText txtusername, txtpassword;
@@ -71,9 +72,10 @@ else{
 Users userData = snapshot.child(parentDbNode).child(userName).getValue(Users.class);
  if(userData.getName().equals(userName)){
     if(userData.getPassword().equals(password)){
-         Toast.makeText(MainActivity.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
+       //  Toast.makeText(MainActivity.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
         //  loadingBar.dismiss();
-        startActivity(new Intent(getApplicationContext(),RetailerCategoryActivity.class)) ;
+        Prevalent.currentOnlineUser=userData;
+        startActivity(new Intent(getApplicationContext(),HomeActivity.class)) ;
 
         /*
         if(userData.getRole()=="Customer"){

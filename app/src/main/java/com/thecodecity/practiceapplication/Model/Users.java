@@ -1,10 +1,18 @@
 package com.thecodecity.practiceapplication.Model;
 
 public class Users {
-private String name, email, password, phone,role;
+private String name, email, password, phone,role,image;
 public Users(){
 
 }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Users(String name, String email, String password, String phone) {
         this.name = name;
@@ -12,6 +20,7 @@ public Users(){
         this.password = password;
         this.phone = phone;
         this.role=role;
+        this.image=image;
     }
 
     public String getName() {
