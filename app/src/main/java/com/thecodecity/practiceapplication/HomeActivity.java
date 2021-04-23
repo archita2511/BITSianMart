@@ -2,7 +2,6 @@ package com.thecodecity.practiceapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +22,6 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -61,8 +59,8 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               Intent intent=new Intent(getApplicationContext(),CartActivity.class);
+          startActivity(intent);
             }
         });
 
@@ -111,10 +109,17 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
                     {
                         holder.txtProductName.setText(model.getPname());
                       //  Toast.makeText(HomeActivity.this,"Products "+ model.getPname(),Toast.LENGTH_SHORT).show();
-                        Log.e("TAG","Products"+model.getPname());
                         holder.txtProductDescription.setText(model.getDescription());
                         holder.txtProductPrice.setText("Price = " + model.getPrice() + "$");
                       //  Picasso.get().load(model.getImage()).into(holder.imageView);
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent=new Intent(HomeActivity.this,ProductDetails.class);
+intent.putExtra("pid",model.getPid()) ;
+                            startActivity(intent);
+                            }
+                        });
                     }
 
                     @NonNull
@@ -171,15 +176,17 @@ public class HomeActivity extends AppCompatActivity  implements NavigationView.O
         int id = item.getItemId();
 
         if (id == R.id.nav_cart) {
+            Intent intent=new Intent(getApplicationContext(),CartActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_orders) {
 
         } else if (id == R.id.nav_categories) {
 
         } else if (id == R.id.nav_settings) {
-          /*  Intent intent = new Intent(HomeActivity.this, MainActivity.class); //SettingsActivity.class
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class); //SettingsActivity.class
             startActivity(intent);
-*/
+
         } else if (id == R.id.nav_logout) {
             Paper.book().destroy();
 
