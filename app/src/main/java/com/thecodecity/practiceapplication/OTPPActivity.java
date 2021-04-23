@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.thecodecity.practiceapplication.Prevalent.Prevalent;
 
 import java.util.concurrent.TimeUnit;
 
@@ -38,17 +39,17 @@ public class OTPPActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_o_t_p_p);
-        LoginButton = findViewById(R.id.login_btn);
+     //   LoginButton = findViewById(R.id.login_btn);
         SendOtp = findViewById(R.id.send_otp);
         VerifyOtp = findViewById(R.id.verify_otp);
-        InputPassword = findViewById(R.id.login_password_input);
+     //   InputPassword = findViewById(R.id.login_password_input);
         InputPhoneNumber = findViewById(R.id.login_phone_number_input);
         EnterOtp = findViewById(R.id.enter_OTP);
-         Customer = findViewById(R.id.Customer);
+   /*      Customer = findViewById(R.id.Customer);
         Retailer = findViewById(R.id.Retailer);
          Wholesaler = findViewById(R.id.Wholesaler);
-        ForgotPassword = findViewById(R.id.forget_password_link);
-        tick = findViewById(R.id.tick);
+        ForgotPassword = findViewById(R.id.forget_password_link); */
+      //  tick = findViewById(R.id.tick);
 
       loadingBar = new ProgressDialog(this);
 
@@ -60,9 +61,14 @@ public class OTPPActivity extends AppCompatActivity {
                     // when mobile number text field is empty
                     // displaying a toast message.
                     String phone = "+91" + InputPhoneNumber.getText().toString();
-                    sendVerificationCode(phone);
-                    SendOtp.setVisibility(View.INVISIBLE);
-                    VerifyOtp.setVisibility(View.VISIBLE);
+                    if(InputPhoneNumber.getText().toString()==Prevalent.currentOnlineUser.getPhone()) {
+                        sendVerificationCode(phone);
+                        SendOtp.setVisibility(View.INVISIBLE);
+                        VerifyOtp.setVisibility(View.VISIBLE);
+                    }
+                    else{
+                        Toast.makeText(OTPPActivity.this,"Please enter your registered mobile number",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
                     // if the text field is not empty we are calling our
@@ -78,8 +84,19 @@ public class OTPPActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (!(TextUtils.isEmpty(EnterOtp.getText().toString()))) {
                     verifyCode(EnterOtp.getText().toString());
-                    Intent intent=new Intent(getApplicationContext(),SendingEvent.class);
-                    startActivity(intent);
+                    if(Prevalent.currentOnlineUser.getRole().equals("Customer")){
+                        Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
+                        startActivity(intent);
+                    }
+                    else if(Prevalent.currentOnlineUser.getRole().equals("Retailer")){
+                        Intent intent=new Intent(getApplicationContext(),RetailerCategoryActivity.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Intent intent=new Intent(getApplicationContext(),SendingEvent.class);
+                        startActivity(intent);
+
+                    }
                 }
                 else {
                     Toast.makeText(OTPPActivity.this, "Please enter OTP", Toast.LENGTH_SHORT).show();

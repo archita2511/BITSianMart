@@ -75,19 +75,26 @@ Users userData = snapshot.child(parentDbNode).child(userName).getValue(Users.cla
        //  Toast.makeText(MainActivity.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
         //  loadingBar.dismiss();
         Prevalent.currentOnlineUser=userData;
-        startActivity(new Intent(getApplicationContext(),HomeActivity.class)) ;
+        startActivity(new Intent(getApplicationContext(),SendingEvent.class)) ;
 
-        /*
-        if(userData.getRole()=="Customer"){
-           startActivity(new Intent(getApplicationContext(),CustomerActivity.class)) ;
+
+/*
+        if(userData.getRole().equals("Customer")){
+            startActivity(new Intent(getApplicationContext(),HomeActivity.class)) ;
+            Toast.makeText(MainActivity.this, "I'm a customer", Toast.LENGTH_SHORT).show();
         }
-        else if(userData.getRole()=="Retailer"){
+        else if(userData.getRole().equals("Retailer")){
+            Toast.makeText(MainActivity.this, "I'm a retailer", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(),RetailerCategoryActivity.class)) ;
         }
         else{
             startActivity(new Intent(getApplicationContext(), SendingEvent.class));
+            Toast.makeText(MainActivity.this, "I'm a wholesaler", Toast.LENGTH_SHORT).show();
+
         }
-*/
+        */
+
+
     }
     else{
       //  loadingBar.dismiss();
